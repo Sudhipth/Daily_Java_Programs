@@ -1,0 +1,27 @@
+class Solution {
+    public List<Integer> luckyNumbers (int[][] matrix) {
+        List<Integer> li = new ArrayList<>() ;
+        List<Integer> minr = new ArrayList<>() ;
+        for(int i = 0 ; i < matrix.length ; i++){
+            int ans = Integer.MAX_VALUE ;
+            for(int j = 0 ; j < matrix[i].length ; j++){
+                if(ans > matrix[i][j]){
+                    ans = matrix[i][j] ;
+                }
+            }
+            minr.add(ans);
+        }
+        for(int i = 0 ; i < matrix[0].length ; i++){
+            int ans = Integer.MIN_VALUE ;
+            for(int j = 0 ; j < matrix.length ; j++){
+                if(ans < matrix[j][i]){
+                    ans = matrix[j][i] ;
+                }
+            }
+            if(minr.contains(ans)){
+                li.add(ans);
+            }
+        }
+        return li;
+    }
+}
