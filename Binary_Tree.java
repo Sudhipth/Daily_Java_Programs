@@ -93,11 +93,9 @@ static Queue<Integer> que=new LinkedList<>() ;
 	private static void inorder(Node ans) {
 		if(ans==null)
 			return;
-
 		inorder(ans.left);
 		System.out.print(ans.data+" ");
 		inorder(ans.right);
-
 	}
 
 	private static void postorder(Node ans) {
