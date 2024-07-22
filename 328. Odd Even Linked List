@@ -1,0 +1,29 @@
+class Solution {
+    public ListNode oddEvenList(ListNode head) {
+        ListNode odd=new ListNode(0);
+        ListNode oddt=odd;
+        ListNode even=new ListNode(0);
+        ListNode event=even;
+        int i=0;
+        while(head!=null)
+        {
+            int n=head.val;
+            if(i%2==1)
+            {
+            ListNode nn=new ListNode(n);
+            event.next=nn;
+            event=event.next;
+            }
+            else
+            {
+            ListNode nn=new ListNode(n);
+            oddt.next=nn;
+            oddt=oddt.next;
+            }
+            head=head.next;
+            i++;
+        }
+        oddt.next=even.next;
+        return odd.next;
+    }
+}
