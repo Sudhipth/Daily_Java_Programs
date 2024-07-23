@@ -1,0 +1,28 @@
+class Solution {
+    public int[] frequencySort(int[] nums) {
+        Arrays.sort(nums);
+        int freq[]=new int[nums.length];
+        for(int i=0;i<nums.length;i++)
+        {
+            for(int j=0;j<nums.length;j++)
+            {
+                if(nums[i]==nums[j])
+                freq[i]++;
+            }
+        }
+         int temp = 0 ;
+        for(int i = 0 ; i < nums.length ; i++){
+            for(int j = i + 1 ; j < nums.length ; j++){
+                if(freq[i] >= freq[j]){
+                    temp = freq[i];
+                    freq[i] = freq[j];
+                    freq[j] = temp;
+                    temp = nums[i];
+                    nums[i] = nums[j];
+                    nums[j] = temp;
+                }
+            }
+        }
+        return nums;
+    }
+}
