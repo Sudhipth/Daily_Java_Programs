@@ -1,0 +1,15 @@
+package Daily_Problem;
+
+public class sumofdigits {
+    public static void main(String[] args) {
+        int num=55;
+        int ans=sum(num);
+        System.out.println(ans);
+    }
+    static int sum(int num)
+    {
+        if(num%10==num)
+            return num;
+        return num%10*sum(num/10);
+    }
+}
