@@ -1,0 +1,25 @@
+class Solution {
+    public String skip(String a)
+    {
+        Stack<Character> stk=new Stack<>();
+        StringBuilder ss=new StringBuilder();
+        for(int i=0;i<a.length();i++)
+        {
+            if(a.charAt(i)=='#' && !stk.isEmpty())
+            stk.pop();
+            else
+            stk.push(a.charAt(i));
+        }
+        while(!stk.isEmpty())
+        {
+            if(stk.peek()!='#')
+            ss.append(stk.pop());
+            else
+            stk.pop();
+        }
+        return String.valueOf(ss.reverse());
+    }
+    public boolean backspaceCompare(String s, String t) {
+        return skip(s).equals(skip(t));
+    }
+}
