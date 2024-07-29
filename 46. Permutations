@@ -1,0 +1,28 @@
+class Solution {
+    public void check(int[] nums, boolean bol[], List<Integer> ds, List<List<Integer>> ans) {
+          if(ds.size()==nums.length)
+          {
+            ans.add(new ArrayList<>(ds));
+            return;
+          }
+          for(int i=0;i<nums.length;i++)
+          {
+            if(!bol[i])
+            {
+                bol[i]=true;
+                ds.add(nums[i]);
+                check(nums, bol, ds, ans);
+                ds.remove(ds.size()-1);
+                bol[i]=false;
+            }
+          }
+    }
+
+    public List<List<Integer>> permute(int[] nums) {
+        List<List<Integer>> ans = new ArrayList<>();
+        List<Integer> ds = new ArrayList<>();
+        boolean bol[] = new boolean[nums.length];
+        check(nums, bol, ds, ans);
+        return ans;
+    }
+}
