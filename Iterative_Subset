@@ -1,0 +1,28 @@
+package Daily_Problem;
+
+import java.util.ArrayList;
+
+public class Iterative_Subset {
+    public static void main(String[] args) {
+        int nums[]={1,2,3};
+        ArrayList<ArrayList<Integer>> l=iterative(nums);
+        for(ArrayList<Integer> ll :l)
+        System.out.println(ll);
+    }
+    public static ArrayList<ArrayList<Integer>> iterative(int nums[])
+    {
+        ArrayList<ArrayList<Integer>> l=new ArrayList<>();
+        l.add(new ArrayList<>());
+        for(int i:nums)
+        {
+            int size=l.size();
+            for(int j=0;j<size;j++)
+            {
+                ArrayList<Integer> in=new ArrayList<>(l.get(j));
+                in.add(i);
+                l.add(in);
+            }
+        }
+        return l;
+    }
+}
