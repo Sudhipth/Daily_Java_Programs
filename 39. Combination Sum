@@ -1,0 +1,25 @@
+class Solution {
+    public void check(int arr[],int tar,List<Integer> l,List<List<Integer>> ll,int i)
+    {
+        if(tar==0)
+        {
+            ll.add(new ArrayList<>(l));
+            return;
+        }
+        if(i>=arr.length)
+        return;
+        if(arr[i]<=tar)
+        {  
+            l.add(arr[i]);     
+            check(arr,tar-arr[i],l,ll,i);
+            l.remove(l.size()-1);
+        }
+        check(arr,tar,l,ll,i+1);
+    }
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        List<List<Integer>> ll=new ArrayList<>();
+        List<Integer> l=new ArrayList<>();
+        check(candidates,target,l,ll,0);
+        return ll;
+    }
+}
