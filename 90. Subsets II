@@ -8,11 +8,11 @@ class Solution {
     }
     public void check(List<List<Integer>> ans,List<Integer> ds,int[] nums,int index)
     {
-        List<Integer> d=new ArrayList<>(ds);
-        if(!ans.contains(d))
-        ans.add(d);
+        
+        ans.add(new ArrayList<>(ds));
         for(int i=index;i<nums.length;i++)
         {
+            if (i > index && nums[i] == nums[i - 1]) continue;
                 ds.add(nums[i]);
                 check(ans,ds,nums,i+1);
                 ds.remove(ds.size()-1);
