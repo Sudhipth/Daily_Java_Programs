@@ -3,7 +3,7 @@ class Solution {
         List<Integer> li = new ArrayList<>() ;
         List<Integer> minr = new ArrayList<>() ;
         for(int i = 0 ; i < matrix.length ; i++){
-            int ans = Integer.MAX_VALUE ;
+            int ans = Integer.MAX_VALUE ; 
             for(int j = 0 ; j < matrix[i].length ; j++){
                 if(ans > matrix[i][j]){
                     ans = matrix[i][j] ;
